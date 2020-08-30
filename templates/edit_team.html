@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Players </h1>
+	<h4> Team ID: {{session.team_id}} </h4>
+	<hr>
+	<h3> <a href='/add_player/{{session.team_id}}' class = "btn btn-default pull-left"> Add Player </a></h3>
+	<br><br><br>
+	<table class = "table table-striped">
+		<tr>
+			<th>Player ID</th>
+			<th>Player Name</th>
+			<th>Player Age</th>
+			<th>Team ID</th>
+			<th></th>
+		</tr>
+		{% for player in players %}
+			<tr>
+				<td>{{player.player_id}}</td>
+				<td>{{player.player_name}}</td>
+				<td>{{player.age}}</td>
+				<td>{{player.team_id}}</td>
+				<td>
+					<a href='delete_player/{{player.player_id}}' class = "btn btn-default pull-right"> Delete </a></td>
+				</td>
+				
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

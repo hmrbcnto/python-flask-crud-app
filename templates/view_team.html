@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Players</h1>
+	<h4> Team ID: {{session.team_id}} </h4>
+	<hr>
+	<br><br><br>
+	<table class = "table table-striped">
+		<tr>
+			<th>Player ID</th>
+			<th>Age</th>
+			<th>Team ID</th>
+			<th></th>
+		</tr>
+		{% for player in players %}
+			<tr>
+				<td>{{player.player_name}}</td>
+				<td>{{player.age}}</td>
+				<td>{{player.team_id}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

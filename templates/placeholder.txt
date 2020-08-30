@@ -1,0 +1,1 @@
+<a href="edit_division/{{division.division_id}}"class = "btn btn-default pull-right">Edit</a>

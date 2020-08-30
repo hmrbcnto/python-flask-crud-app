@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Divisions</h1>
+	<h4> League ID: {{session.league_id}} </h4>
+	<hr>
+	<br><br><br>
+	<table class = "table table-striped">
+		<tr>
+			<th>Division ID</th>
+			<th>Division Name</th>
+			<th>League ID </th>
+			<th></th>
+			<th></th> 
+		</tr>
+		{% for division in divisions %}
+			<tr>
+				<td>{{division.division_id}}</td>
+				<td>{{division.division_name}}</td>
+				<td>{{division.league_id}}</td>
+				<td>
+					<form action="{{url_for('view_division', division_id=division.division_id)}}" method = "get">
+						<input type = "hidden" value = "view" name = "_method">
+						<input type ="submit" value="View" class = "btn pull-right">
+					</form>
+					</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

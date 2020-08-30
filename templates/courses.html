@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Students </h1>
+	<hr>
+	<table class = "table table-striped">
+		<tr>
+			<th>Course ID </th>
+			<th> Course Name </th>
+		</tr>
+		{% for course in courses %}
+		<tr>
+			<td>{{course.course_id}}</td>
+			<td>{{course.course_name}}</td>
+		</tr>
+		{% endfor %}
+	</table> 
+{% endblock %}

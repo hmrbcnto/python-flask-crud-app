@@ -1,0 +1,5 @@
+SELECT leagues.league_id, leagues.league_name, leagues.start_date, leagues.end_date, leagues.no_of_divisions,  sports.sport_name
+FROM leagues
+LEFT JOIN sports
+ON leagues.sport_id = sports.sport_id
+ORDER BY leagues.league_id

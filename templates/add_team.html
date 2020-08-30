@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Add Team </h1>
+	<h4> Division ID: {{session.division_id}} </h4>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method = "POST" action ="">
+		<div class="form.group">
+			{{ render_field(form.team_name, class = "form-control") }}
+		</div>
+		<p> <input class = "btn btn-primary" type = "submit" value = "Submit"> </p>
+	</form>
+{% endblock %}

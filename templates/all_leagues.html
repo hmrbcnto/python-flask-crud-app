@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Leagues </h1>
+	<hr>
+	<table class = "table table-striped">
+		<tr>
+			<th>League ID</th>
+			<th>League Name</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Number of Divisions</th>
+			<th>Sport Name</th>
+			<th> Manager ID </th>
+			<th></th>
+			<th></th> 
+		</tr>
+		{% for league in leagues %}
+			<tr>
+				<td>{{league.league_id}}</td>
+				<td>{{league.league_name}}</td>
+				<td>{{league.start_date}}</td>
+				<td>{{league.end_date}}</td>
+				<td>{{league.no_of_divisions}}</td>
+				<td>{{league.sport_name}}</td>
+				<td>{{league.manager_id}}</td>
+				<td><a href='/view_league/{{league.league_id}}'class = "btn btn-default pullright">View</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

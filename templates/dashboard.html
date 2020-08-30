@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Dashboard <small>Welcome {{session.username}}! </small></h1>
+	<br><small>Your manager id is {{session.manager_id}}</small><br>
+	<a class ="btn btn-success" href="/add_league"> Add League </a><br><br>
+	<table class = "table table-striped">
+		<tr>
+			<th>League ID</th>
+			<th>League Name</th>
+			<th>Start Date</th>
+			<th> End Date</th>
+			<th>Number of Divisions</th>
+			<th>Sport Name</th>
+			<th></th>
+			<th></th> 
+			<!-- <th></th> -->
+		</tr>
+		{% for league in leagues %}
+			<tr>
+				<td>{{league.league_id}}</td>
+				<td>{{league.league_name}}</td>
+				<td>{{league.start_date}}</td>
+				<td>{{league.end_date}}</td>
+				<td>{{league.no_of_divisions}}</td>
+				<td>{{league.sport_name}}</td>
+				<td>
+				<a href="edit_league/{{league.league_id}}" class = "btn pull-right'>Edit</a>
+				<form action="{{url_for('edit_league', league_id=league.league_id)}}" method="post"> 
+					<input type="hidden" name="_method" value="EDIT">
+					<input type="submit" value="Edit" class="btn pull-right">
+				</form></td>
+				<td><a href='/delete_league/{{league.league_id}}' class="btn btn-danger pull-right">Delete</a></td>
+			</tr>
+		{% endfor %}
+	<hr>
+{% endblock %}

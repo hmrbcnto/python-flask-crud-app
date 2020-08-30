@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Add League </h1>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method = "POST" action ="">
+		<div class="form.group">
+			{{ render_field(form.league_name, class = "form-control") }}
+		</div>
+		<div class="form.group">
+			{{ render_field(form.no_of_divisions, class = "form-control") }}
+		</div>
+		<div class="form.group">
+			{{ render_field(form.start_date, class = "form-control") }}
+		</div>
+		<div class="form.group">
+			{{ render_field(form.end_date, class = "form-control") }}
+		</div>
+		<div class="form.group">
+			{{ render_field(form.sport_id, class = "form-control") }}
+		</div>
+		<p> <input class = "btn btn-primary" type = "submit" value = "Submit"> </p>
+	</form>
+	<br><br>
+	<h1> Sports </h1>
+	<hr>
+	<table class = "table table-striped">
+		<tr>
+			<th>Sport ID </th>
+			<th>Sport Name </th>
+			<th>Sport Type </th>
+		</tr>
+		{% for sport in sports %}
+		<tr>
+			<td>{{sport.sport_id}}</td>
+			<td>{{sport.sport_name}}</td>
+			<td>{{sport.type}}</td>
+		</tr>
+		{% endfor %}
+{% endblock %}

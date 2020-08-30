@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Teams</h1>
+	<h4> Division ID: {{session.division_id}} </h4>
+	<hr>
+	<br><br><br>
+	<table class = "table table-striped">
+		<tr>
+			<th>Team ID</th>
+			<th>Team Name</th>
+			<th>Division ID </th>
+			<th></th>
+		</tr>
+		{% for team in teams %}
+			<tr>
+				<td>{{team.team_id}}</td>
+				<td>{{team.team_name}}</td>
+				<td>{{team.division_id}}</td>
+				<td><a href='/view_team/{{team.team_id}}'class = "btn btn-default pull-right">View</a></td>
+			</tr>
+		{% endfor %}
+		
+	</table>
+	<br><br><br>
+	<h1> Plays </h1>
+	<hr>
+	<table class = "table table-striped">
+		<tr>
+			<th> Match ID </th>
+			<th> Team ID A</th>
+			<th> Team ID B</th>
+			<th> Team A Name </th>
+			<th> Team B Name </th>
+			<th> Team A Score </th>
+			<th> Team B Score </th>
+		<tr>
+		{% for play in plays %}
+			<tr>
+				<td>{{play.match_id}}</td>
+				<td>{{play.team_id_A}}</td>
+				<td>{{play.team_id_B}}</td>
+				<td>{{play.team_name_A}}</td>
+				<td>{{play.team_name_B}}</td>
+				<td>{{play.score_A}}</td>
+				<td>{{play.score_B}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1> Students </h1>
+	<hr>
+	<table class = "table table-striped">
+		<tr>
+			<th>ID </th>
+			<th> Last Name </th>
+			<th> First Name </th>
+			<th> Course Name </th>
+			<th> Year Level </th>
+			<th> Gender </th>
+		</tr>
+		{% for student in students %}
+		<tr>
+			<td>{{student.id}}</td>
+			<td>{{student.lname}}</td>
+			<td>{{student.fname}}</td>
+			<td>{{student.course_name}}</td>
+			<td>{{student.ylevel}}</td>
+			<td>{{student.gender}}</td>
+			<td>
+				<form action="{{url_for('delete_student',id=student.id)}}" method="post"> 
+					<input type="hidden" name="_method" value="DELETE">
+					<input type="submit" value="Delete" class="btn btn-danger">
+				</form>
+			</td>
+		{% endfor %}
+	</table> 
+{% endblock %}
